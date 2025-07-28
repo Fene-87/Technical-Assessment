@@ -1,10 +1,5 @@
 export default function LoadingState() {
     return (
-    //   <div className="bg-white p-4 rounded shadow animate-pulse w-full max-w-2xl mx-auto mt-6">
-    //     <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
-    //     <div className="h-4 bg-gray-300 rounded w-full mb-2"></div>
-    //     <div className="h-4 bg-gray-300 rounded w-5/6"></div>
-    //   </div>
     <div className="w-full max-w-4xl mx-auto mt-12">
       <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20">
         <div className="flex flex-col items-center space-y-6">

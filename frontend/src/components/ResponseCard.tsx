@@ -6,10 +6,6 @@ export default function ResponseCard({ content }: Props) {
     if (!content) return null
   
     return (
-    //   <div className="bg-white p-4 rounded shadow w-full max-w-2xl mx-auto mt-6">
-    //     <h2 className="font-semibold text-lg mb-2 text-[#839cb5]">Response:</h2>
-    //     <p className="whitespace-pre-line text-gray-800">{content}</p>
-    //   </div>
     <div className="w-full max-w-4xl mx-auto mt-12">
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>

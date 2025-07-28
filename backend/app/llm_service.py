@@ -1,35 +1,42 @@
-# from openai import OpenAI
-# import os
-# from app.config import settings
-
-# client = OpenAI(api_key=settings.OPENAI_API_KEY)
-
-# def ask_llm(prompt: str) -> str:
-#     try:
-#         response = client.chat.completions.create(
-#             model="gpt-3.5-turbo",
-#             messages=[{"role": "user", "content": prompt}]
-#         )
-#         return response.choices[0].message.content
-#     except Exception as e:
-#         print(f"Error calling OpenAI API: {e}")
-#         raise
-
-# backend/app/llm_service.py
 import google.generativeai as genai
 from app.config import settings
 
-# Configure with your Gemini API key
 genai.configure(api_key=settings.GEMINI_API_KEY)
 
-# Create a Gemini model using the correct v1 model path
 model = genai.GenerativeModel("models/gemini-1.5-flash")
+
+# def ask_llm(prompt: str) -> str:
+#     try:
+#         print(f"Sending prompt to Gemini: {prompt}")
+#         response = model.generate_content(prompt)
+#         return response.text.strip()
+#     except Exception as e:
+#         print(f"Error calling Gemini API: {e}")
+#         raise
 
 def ask_llm(prompt: str) -> str:
     try:
+        if not is_valid_startup_idea(prompt):
+            return "⚠️ Please provide a valid startup idea or a greeting to proceed."
+
         print(f"Sending prompt to Gemini: {prompt}")
         response = model.generate_content(prompt)
         return response.text.strip()
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
         raise
+
+def is_valid_startup_idea(prompt: str) -> bool:
+    classifier_prompt = f"""
+    Classify the following user message as one of three categories: 
+    (1) a greeting, (2) a startup idea, or (3) neither.
+
+    If it's a greeting or startup idea, respond with "YES". 
+    If it's neither, respond with "NO" only.
+
+    Message: "{prompt}"
+    """
+
+    model = genai.GenerativeModel("models/gemini-1.5-flash")
+    classification = model.generate_content(classifier_prompt).text.strip().lower()
+    return "yes" in classification

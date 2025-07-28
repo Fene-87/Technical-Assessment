@@ -33,25 +33,6 @@ export default function InputBox({ setResponse, setLoading }: Props) {
   }
 
   return (
-    // <form onSubmit={handleSubmit} className="mb-4 space-y-2 w-full max-w-2xl mx-auto mt-6">
-    //   <label htmlFor="query" className="block text-sm font-medium text-[#839cb5] mb-1">
-    //    Ask your question
-    // </label>
-
-    //   <textarea
-    //     className="w-full text-[#839cb5] p-3 border rounded resize-none outline-none focus:outline-none focus:ring-2"
-    //     rows={4}
-    //     placeholder="e.g. How scalable is a delivery app for farm produce in rural areas?"
-    //     value={question}
-    //     onChange={(e) => setQuestion(e.target.value)}
-    //   />
-    //   <button
-    //     type="submit"
-    //     className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-    //   >
-    //     Submit
-    //   </button>
-    // </form>
     <div className="w-full max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
