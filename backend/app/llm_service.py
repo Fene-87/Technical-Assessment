@@ -1,5 +1,6 @@
 import google.generativeai as genai
 from app.config import settings
+import re
 
 genai.configure(api_key=settings.GEMINI_API_KEY)
 
@@ -16,6 +17,10 @@ model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 def ask_llm(prompt: str) -> str:
     try:
+        # Check for common greetings directly, before LLM call
+        if re.search(r"\b(hi|hello|hey|greetings)\b", prompt.lower()):
+            return "👋 Hello! I'm here to help evaluate startup ideas. Feel free to describe your idea and I’ll give you some insights."
+
         if not is_valid_startup_idea(prompt):
             return "⚠️ Please provide a valid startup idea or a greeting to proceed."
 
