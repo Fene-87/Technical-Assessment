@@ -11,6 +11,11 @@ An application that allows users to input startup ideas and receive AI-generated
 
 ---
 
+## Live Demo
+
+Frontend: https://technical-assessment-five.vercel.app
+Backend API: https://technical-assessment-k13j.onrender.com/docs
+
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the repo
