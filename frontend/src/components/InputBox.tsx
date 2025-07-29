@@ -15,7 +15,7 @@ export default function InputBox({ setResponse, setLoading }: Props) {
     setLoading(true)
     setResponse('')
     try {
-      const res = await fetch('http://localhost:8000/query', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question })
